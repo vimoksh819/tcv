@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vemuri Vimoksh Ram Nag</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #6200ea;
+      color: #fff;
+    }
+
+    .header .heading h1 {
+      margin: 0;
+    }
+
+    .header .contact a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 50px auto;
+      max-width: 800px;
+    }
+
+    .cv-button,
+    .download-button {
+      background-color: #6200ea;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    .cv-button:hover,
+    .download-button:hover {
+      background-color: #3700b3;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      max-width: 800px;
+      height: 500px;
+      border: 2px solid #6200ea;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .pdf-viewer iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="heading">
+      <h1>Tarun Sai Jampolu</h1>
+    </div>
+    <div class="contact">
+      <a href="mailto:tarunsaij9949@gmail.com">Contact</a>
+    </div>
+  </header>
+  <main class="content">
+    <button class="cv-button" onclick="viewCV()">View Curriculum Vitae</button>
+    <button class="download-button" onclick="downloadCV()">Download CV</button>
+    <div class="pdf-viewer">
+      <iframe src="cv/Cv of Tarun.pdf.pdf" id="pdfFrame" title="Curriculum Vitae" frameborder="0"></iframe>
+    </div>
+  </main>
+  <script>
+    function viewCV() {
+      const pdfFrame = document.getElementById('pdfFrame');
+      pdfFrame.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function downloadCV() {
+      const link = document.createElement('a');
+      link.href = 'cv/Cv of Tarun.pdf.pdf'; // Replace with the actual file path
+      link.download = 'Curriculum_Vitae.pdf'; // Name of the file to be downloaded
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
